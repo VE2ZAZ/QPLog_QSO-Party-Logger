@@ -1,0 +1,36 @@
+object ON_Cab_Edit_Form: TON_Cab_Edit_Form
+  Left = 999
+  Height = 648
+  Top = 283
+  Width = 706
+  Caption = 'ON_Cab_Edit_Form'
+  ClientHeight = 648
+  ClientWidth = 706
+  OnShow = ON_Cab_Edit_Form_OnShow
+  LCLVersion = '3.2.0.0'
+  inline ON_Cabrillo_File_Editor_Frame: TCabrillo_File_Editor_Frame
+    Width = 706
+    Align = alTop
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClientWidth = 706
+    DesignLeft = 720
+    DesignTop = 311
+    inherited Cabrillo_Button_Panel: TPanel
+      Top = 544
+      Width = 706
+      ClientWidth = 706
+      TabOrder = 2
+      inherited Cabrillo_Close_Button: TButton
+        OnClick = Cabrillo_Close_ButtonClick
+      end
+      inherited Cabrillo_Save_Changes_Button: TButton
+        OnClick = Cabrillo_Save_Changes_ButtonClick
+      end
+    end
+    inherited Cab_Edit_Form_Memo: TMemo
+      Height = 536
+      Top = 8
+      Width = 706
+    end
+  end
+end

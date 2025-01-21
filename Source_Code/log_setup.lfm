@@ -1,0 +1,334 @@
+object Log_Setup_Form: TLog_Setup_Form
+  Left = 81
+  Height = 466
+  Top = 784
+  Width = 530
+  Anchors = []
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Log: Configuration'
+  ClientHeight = 466
+  ClientWidth = 530
+  DesignTimePPI = 91
+  OnClose = Log_Setup_Form_OnClose
+  OnCreate = Log_setup_Form_OnCreate
+  OnShow = Log_setup_Form_OnShow
+  LCLVersion = '3.6.0.0'
+  object Party_Select_RadioGroup: TRadioGroup
+    Left = 14
+    Height = 110
+    Hint = 'QC: Participation au Québec QSO Party seulement. '#10'Les QSOs avec les stations ontariennes peuvent être saisis avec la Zone "ON"'#10'ou avec les comtés ontariens à trois lettres.'#10' '#10'ON: Participation au Ontario QSO Party seulement. '#10'Les QSOs avec les stations québécoises peuvent être saisis avec la Zone "QC"'#10'ou avec les régions administratives québécoises à trois lettres.'#10' '#10'QC+ON: Participation simultanée au Québec QSO Party et à l''Ontario QSO Party.'#10'Les QSOs de stations québécoises et ontariennes doivent être saisis avec leur'#10'région administrative ou comté à trois lettres. Tout QSO saisi avec la zone "QC" '#10'ou "ON" sera exclu du score du Party correspondant.'
+    Top = 30
+    Width = 205
+    AutoFill = False
+    Caption = 'Sélection du QSO Party'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 94
+    ClientWidth = 203
+    Font.Height = -12
+    Font.Name = 'DejaVu Sans'
+    ItemIndex = 0
+    Items.Strings = (
+      'QC'
+      'ON'
+      'QC+ON'
+    )
+    OnClick = Party_Select_RadioGroupClick
+    ParentBackground = False
+    ParentFont = False
+    ParentColor = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+  end
+  object Station_GroupBox: TGroupBox
+    Left = 14
+    Height = 240
+    Top = 174
+    Width = 500
+    Caption = 'Votre Station'
+    ClientHeight = 224
+    ClientWidth = 498
+    Font.Height = -12
+    Font.Name = 'DejaVu Sans'
+    ParentBackground = False
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 1
+    OnClick = Station_GroupBoxClick
+    object Station_Callsign_LabeledEdit: TLabeledEdit
+      Left = 12
+      Height = 27
+      Top = 42
+      Width = 99
+      EditLabel.Height = 15
+      EditLabel.Width = 99
+      EditLabel.Caption = 'Indicatif'
+      EditLabel.WordWrap = True
+      TabOrder = 0
+      OnChange = Station_Callsign_LabeledEditChange
+    end
+    object Ops_Callsign_LabeledEdit: TLabeledEdit
+      Left = 12
+      Height = 27
+      Top = 178
+      Width = 218
+      EditLabel.Height = 15
+      EditLabel.Width = 218
+      EditLabel.Caption = 'MULTI - Indicatifs des Opérateurs'
+      Enabled = False
+      TabOrder = 1
+    end
+    object Email_LabeledEdit: TLabeledEdit
+      Left = 275
+      Height = 27
+      Top = 110
+      Width = 213
+      EditLabel.Height = 15
+      EditLabel.Width = 213
+      EditLabel.Caption = 'Courriel'
+      TabOrder = 2
+      OnChange = Email_LabeledEditChange
+    end
+    object OpName_LabeledEdit: TLabeledEdit
+      Left = 275
+      Height = 27
+      Top = 42
+      Width = 215
+      EditLabel.Height = 15
+      EditLabel.Width = 215
+      EditLabel.Caption = 'Nom de l''Opérateur'
+      EditLabel.WordWrap = True
+      TabOrder = 3
+    end
+    object Location_ComboBox: TComboBox
+      Left = 138
+      Height = 27
+      Top = 110
+      Width = 92
+      ItemHeight = 0
+      ReadOnly = True
+      Sorted = True
+      TabOrder = 4
+      OnChange = Location_ComboBoxChange
+    end
+    object Location_Label: TLabel
+      Left = 138
+      Height = 15
+      Top = 90
+      Width = 84
+      Caption = 'Emplacement'
+    end
+    object Zone_ComboBox: TComboBox
+      Left = 138
+      Height = 27
+      Top = 42
+      Width = 92
+      ItemHeight = 0
+      ReadOnly = True
+      Sorted = True
+      TabOrder = 5
+      OnChange = Zone_ComboBox_OnChange
+    end
+    object Zone_Label: TLabel
+      Left = 138
+      Height = 15
+      Top = 23
+      Width = 98
+      Caption = 'Zone Provinciale'
+    end
+    object Club_LabeledEdit: TLabeledEdit
+      Left = 275
+      Height = 27
+      Top = 178
+      Width = 213
+      EditLabel.Height = 15
+      EditLabel.Width = 213
+      EditLabel.Caption = 'Club Affilié (Optionnel)'
+      TabOrder = 6
+      OnChange = Email_LabeledEditChange
+    end
+  end
+  object Category_GroupBox: TGroupBox
+    Left = 234
+    Height = 152
+    Top = 10
+    Width = 280
+    Caption = 'Catégorie'
+    ClientHeight = 136
+    ClientWidth = 278
+    Font.Height = -12
+    Font.Name = 'DejaVu Sans'
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 2
+    object Cat_OP_ComboBox: TComboBox
+      Left = 17
+      Height = 27
+      Top = 32
+      Width = 120
+      ItemHeight = 0
+      Items.Strings = (
+        'SINGLE-OP'
+        'MULTI-OP'
+        'CHECKLOG'
+      )
+      ReadOnly = True
+      TabOrder = 0
+      OnChange = Cat_OP_ComboBoxChange
+    end
+    object Cat_Power_ComboBox: TComboBox
+      Left = 157
+      Height = 27
+      Top = 95
+      Width = 100
+      ItemHeight = 0
+      Items.Strings = (
+        'HIGH'
+        'LOW'
+        'QRP'
+      )
+      ReadOnly = True
+      TabOrder = 1
+    end
+    object Cat_Mode_ComboBox: TComboBox
+      Left = 17
+      Height = 27
+      Top = 95
+      Width = 100
+      ItemHeight = 0
+      Items.Strings = (
+        'CW'
+        'SSB / FM'
+        'MIXED'
+      )
+      ReadOnly = True
+      TabOrder = 2
+    end
+    object Cat_Bands_ComboBox: TComboBox
+      Left = 263
+      Height = 27
+      Top = 84
+      Width = 100
+      ItemHeight = 0
+      Items.Strings = (
+        'ALL'
+        '160m'
+        '80m'
+        '40m'
+        '20m'
+        '15m'
+        '10m'
+        '6m'
+        '2m'
+      )
+      ReadOnly = True
+      TabOrder = 3
+      Visible = False
+    end
+    object Cat_TX_ComboBox: TComboBox
+      Left = 266
+      Height = 27
+      Top = 32
+      Width = 101
+      ItemHeight = 0
+      Items.Strings = (
+        'ONE'
+        'UNLIMITTED'
+      )
+      ReadOnly = True
+      TabOrder = 4
+      Visible = False
+      OnChange = Cat_TX_ComboBoxChange
+    end
+    object Cat_Station_ComboBox: TComboBox
+      Left = 157
+      Height = 27
+      Top = 32
+      Width = 100
+      ItemHeight = 0
+      Items.Strings = (
+        'FIXED'
+        'MOBILE'
+      )
+      ReadOnly = True
+      TabOrder = 5
+      OnChange = Cat_TX_ComboBoxChange
+    end
+    object Cat_Type_Label: TLabel
+      Left = 17
+      Height = 15
+      Top = 12
+      Width = 101
+      Caption = 'Type d''Opération'
+    end
+    object Cat_Power_Label: TLabel
+      Left = 157
+      Height = 15
+      Top = 75
+      Width = 59
+      Caption = 'Puissance'
+    end
+    object Zone_LAbel3: TLabel
+      Left = 269
+      Height = 15
+      Top = 59
+      Width = 54
+      Caption = 'Bande(s)'
+      Visible = False
+    end
+    object Cat_Num_Xmit_Label: TLabel
+      Left = 266
+      Height = 15
+      Top = 14
+      Width = 130
+      Caption = 'Nombre d''Émetteurs '
+      Visible = False
+      OnClick = Cat_Num_Xmit_LabelClick
+    end
+    object Cat_Mode_Label: TLabel
+      Left = 17
+      Height = 15
+      Top = 75
+      Width = 36
+      Caption = 'Mode '
+    end
+    object Cat_Station_Type_Label: TLabel
+      Left = 157
+      Height = 15
+      Top = 12
+      Width = 93
+      Caption = 'Type de Station'
+    end
+  end
+  object Setup_Close_Button: TButton
+    Left = 320
+    Height = 28
+    Top = 423
+    Width = 82
+    Align = alCustom
+    Anchors = [akLeft, akBottom]
+    Caption = 'Fermer'
+    Font.Height = -12
+    Font.Name = 'DejaVu Sans'
+    ParentFont = False
+    TabOrder = 3
+    OnClick = Setup_Close_ButtonClick
+  end
+  object Setup_Help_Button: TButton
+    Left = 104
+    Height = 28
+    Top = 423
+    Width = 82
+    Anchors = [akLeft, akBottom]
+    Caption = 'Aide'
+    TabOrder = 4
+    OnClick = Setup_Help_ButtonClick
+  end
+end

@@ -1,0 +1,246 @@
+object QSO_Entry_Form: TQSO_Entry_Form
+  Left = 235
+  Height = 174
+  Top = 429
+  Width = 404
+  ActiveControl = Callsign_Entry_Edit
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Saisie des QSOs'
+  ClientHeight = 174
+  ClientWidth = 404
+  DesignTimePPI = 91
+  Enabled = False
+  KeyPreview = True
+  OnClose = Program_OnClose
+  OnCreate = Entry_Form_OnCreate
+  OnKeyDown = QSO_Entry_Form_OnKey_Down
+  OnShow = QSO_Entry_Form_OnShow
+  LCLVersion = '3.6.0.0'
+  Visible = True
+  object Date_Entry_Edit: TEdit
+    Left = 34
+    Height = 30
+    Top = 38
+    Width = 110
+    Enabled = False
+    Font.Height = -15
+    Font.Name = 'Liberation Mono'
+    ParentFont = False
+    TabOrder = 8
+    Text = 'Date'
+    OnKeyPress = Date_Edit_OnKeyPress
+  end
+  object Time_Entry_Edit: TEdit
+    Left = 147
+    Height = 30
+    Top = 38
+    Width = 68
+    Enabled = False
+    Font.Height = -15
+    Font.Name = 'Liberation Mono'
+    ParentFont = False
+    TabOrder = 9
+    Text = 'Time'
+    OnKeyPress = Time_Edit_OnKeyPress
+  end
+  object Callsign_Entry_Edit: TEdit
+    Left = 8
+    Height = 30
+    Top = 87
+    Width = 110
+    Font.Height = -15
+    Font.Name = 'Liberation Mono'
+    ParentFont = False
+    TabOrder = 0
+    OnChange = Callsign_Entry_Edit_OnChange
+    OnKeyPress = Callsign_Entry_OnKeyPress
+  end
+  object Zone_Entry_Edit: TEdit
+    Left = 185
+    Height = 30
+    Top = 87
+    Width = 53
+    Font.Height = -15
+    Font.Name = 'Liberation Mono'
+    ParentFont = False
+    TabOrder = 2
+    OnChange = Zone_OnChange
+    OnKeyPress = Zone_Entry_OnKeyPress
+  end
+  object Band_Entry_ListBox_1: TListBox
+    Left = 295
+    Height = 83
+    Top = 34
+    Width = 46
+    Columns = 1
+    ExtendedSelect = False
+    Font.Height = -12
+    Font.Name = 'Liberation Mono'
+    Items.Strings = (
+      '1800'
+      '3500'
+      '7000'
+      '14000'
+    )
+    ItemHeight = 18
+    ItemIndex = 1
+    ParentFont = False
+    TabOrder = 4
+    OnClick = Band_Entry_ListBox_1Click
+    OnKeyPress = Band_Entry_Listbox1_OnKeyPress
+    OnSelectionChange = Band_Entry_1_ListBox_OnChange
+  end
+  object Mode_Entry_ListBox: TListBox
+    Left = 252
+    Height = 83
+    Top = 34
+    Width = 38
+    ExtendedSelect = False
+    Font.Height = -12
+    Font.Name = 'Liberation Mono'
+    Items.Strings = (
+      'SSB'
+      'CW'
+      'FM'
+    )
+    ItemHeight = 18
+    ItemIndex = 0
+    ParentFont = False
+    TabOrder = 3
+    OnClick = Mode_Entry_ListBoxClick
+    OnKeyPress = Mode_Entry_Listbox_OnKeyPress
+  end
+  object Save_Entry_Button: TButton
+    Left = 214
+    Height = 36
+    Top = 125
+    Width = 95
+    Caption = 'Sauvegarder'
+    Font.Height = -12
+    Font.Name = 'Liberation Mono'
+    ParentFont = False
+    TabOrder = 6
+    OnClick = Save_Entry_ButtonClick
+  end
+  object Cancel_Entry_Button: TButton
+    Left = 92
+    Height = 36
+    Top = 125
+    Width = 89
+    Caption = 'Effacer'
+    Font.Height = -12
+    Font.Name = 'Liberation Mono'
+    ParentFont = False
+    TabOrder = 7
+    OnClick = Cancel_Entry_ButtonClick
+  end
+  object Report_Entry_Edit: TEdit
+    Left = 122
+    Height = 30
+    Top = 87
+    Width = 59
+    Font.Height = -15
+    Font.Name = 'Liberation Mono'
+    ParentFont = False
+    TabOrder = 1
+    Text = '599'
+    OnChange = Report_Entry_EditChange
+    OnKeyPress = Report_Entry_OnKeyPress
+  end
+  object QSO_Edit_Label: TLabel
+    Left = 0
+    Height = 22
+    Top = 0
+    Width = 404
+    Align = alTop
+    Alignment = taCenter
+    Caption = 'Saisie d''un QSO'
+    Color = 7782408
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Sans'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Band_Entry_ListBox_2: TListBox
+    Left = 340
+    Height = 83
+    Top = 34
+    Width = 53
+    Columns = 1
+    ExtendedSelect = False
+    Font.Height = -12
+    Font.Name = 'Liberation Mono'
+    Items.Strings = (
+      '21000'
+      '28000'
+      '50000'
+      '144000'
+    )
+    ItemHeight = 18
+    ParentFont = False
+    TabOrder = 5
+    OnClick = Band_Entry_ListBox_2Click
+    OnKeyPress = Band_Entry_Listbox2_OnKeyPress
+    OnSelectionChange = Band_Entry_2_ListBox_OnChange
+  end
+  object Date_Label: TLabel
+    Left = 74
+    Height = 15
+    Top = 24
+    Width = 28
+    Caption = 'Date'
+    Font.Height = -12
+    Font.Name = 'DejaVu Sans'
+    ParentFont = False
+  end
+  object Time_Label: TLabel
+    Left = 163
+    Height = 15
+    Top = 24
+    Width = 36
+    Caption = 'Heure'
+    Font.Height = -12
+    Font.Name = 'DejaVu Sans'
+    ParentFont = False
+  end
+  object Callsign_Label: TLabel
+    Left = 45
+    Height = 15
+    Top = 73
+    Width = 49
+    Caption = 'Indicatif'
+    Font.Height = -12
+    Font.Name = 'DejaVu Sans'
+    ParentFont = False
+    OnClick = Callsign_LabelClick
+  end
+  object RX_RST_Label: TLabel
+    Left = 126
+    Height = 15
+    Top = 73
+    Width = 52
+    Caption = 'Rx RS(T)'
+    Font.Height = -12
+    Font.Name = 'DejaVu Sans'
+    ParentFont = False
+  end
+  object Zone_Label: TLabel
+    Left = 196
+    Height = 15
+    Top = 73
+    Width = 30
+    Caption = 'Zone'
+    Font.Height = -12
+    Font.Name = 'DejaVu Sans'
+    ParentFont = False
+  end
+  object Date_Time_Refresh_Timer: TTimer
+    OnTimer = Date_Time_Refresh_TimerTimer
+    Left = 15
+    Top = 137
+  end
+end
