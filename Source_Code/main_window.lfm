@@ -1,0 +1,419 @@
+object Main_Form: TMain_Form
+  Left = 36
+  Height = 391
+  Top = 104
+  Width = 603
+  Caption = 'Liste des QSOs'
+  ClientHeight = 391
+  ClientWidth = 603
+  Color = clGray
+  DesignTimePPI = 91
+  Enabled = False
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = Main_Form_OnCreate
+  OnKeyDown = Main_Form_OnKeyDown
+  OnShow = Main_Form_OnShow
+  OnWindowStateChange = Main_Form_OnWindowStateChange
+  LCLVersion = '3.6.0.0'
+  object Dupe_QSO_List_StringGrid: TStringGrid
+    AnchorSideBottom.Control = Bottom_Botton_Panel
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 54
+    Top = 337
+    Width = 603
+    Align = alTop
+    Anchors = [akTop, akBottom]
+    AutoEdit = False
+    AutoFillColumns = True
+    Color = 29137
+    ColCount = 8
+    ColumnClickSorts = True
+    Columns = <    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Date_Heure'
+        Width = 142
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Freq'
+        Width = 66
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Mode'
+        Width = 66
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Station'
+        Width = 65
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'RS(T)'
+        Width = 65
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Sa Zone'
+        Width = 65
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Party'
+        Width = 65
+      end    
+      item
+        Color = clWindow
+        Title.Caption = 'Ma Zone'
+        Width = 65
+      end>
+    FixedCols = 0
+    Font.Height = -12
+    Font.Name = 'Liberation Mono'
+    MouseWheelOption = mwGrid
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goRowSelect, goSmoothScroll]
+    ParentFont = False
+    RowCount = 1
+    ScrollBars = ssAutoVertical
+    TabOrder = 3
+    TitleStyle = tsNative
+    Visible = False
+    OnClick = QSO_ListString_OnClick
+    ColWidths = (
+      142
+      66
+      66
+      65
+      65
+      65
+      65
+      65
+    )
+    RowHeights = (
+      23
+    )
+  end
+  object Bottom_Botton_Panel: TPanel
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 27
+    Top = 364
+    Width = 603
+    Anchors = [akLeft, akRight, akBottom]
+    ClientHeight = 27
+    ClientWidth = 603
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    object Help_Button: TButton
+      Left = 498
+      Height = 25
+      Top = 1
+      Width = 38
+      Align = alRight
+      AutoSize = True
+      Caption = 'Aide'
+      TabOrder = 2
+      OnClick = Help_ButtonClick
+    end
+    object About_Button: TButton
+      Left = 536
+      Height = 25
+      Top = 1
+      Width = 66
+      Align = alRight
+      AutoSize = True
+      Caption = 'À Propos'
+      TabOrder = 3
+      OnClick = About_ButtonClick
+    end
+    object Cabrillo_Button: TButton
+      Left = 337
+      Height = 25
+      Top = 1
+      Width = 57
+      Align = alLeft
+      AutoSize = True
+      Caption = 'Cabrillo'
+      TabOrder = 4
+      OnClick = Cabrillo_ButtonClick
+    end
+    object Copy_Log_Button: TButton
+      Left = 260
+      Height = 25
+      Top = 1
+      Width = 77
+      Align = alLeft
+      AutoSize = True
+      Caption = 'Copier Log'
+      TabOrder = 6
+      OnClick = Copy_Log_ButtonClick
+    end
+    object Config_Log_Button: TButton
+      Left = 179
+      Height = 25
+      Top = 1
+      Width = 81
+      Align = alLeft
+      AutoSize = True
+      Caption = 'Config. Log'
+      TabOrder = 5
+      OnClick = Config_Log_ButtonClick
+    end
+    object New_Log_Button: TButton
+      Left = 87
+      Height = 25
+      Top = 1
+      Width = 92
+      Align = alLeft
+      AutoSize = True
+      Caption = 'Nouveau Log'
+      TabOrder = 1
+      OnClick = New_Log_ButtonClick
+    end
+    object Load_Log_Button: TButton
+      Left = 1
+      Height = 25
+      Top = 1
+      Width = 86
+      Align = alLeft
+      AutoSize = True
+      Caption = 'Charger Log'
+      TabOrder = 0
+      OnClick = Load_Log_ButtonClick
+    end
+    object Language_Button: TButton
+      Left = 443
+      Height = 25
+      Top = 1
+      Width = 55
+      Align = alRight
+      AutoSize = True
+      Caption = 'English'
+      TabOrder = 7
+      OnClick = Language_ButtonClick
+    end
+  end
+  object QSO_List_StringGrid: TStringGrid
+    AnchorSideBottom.Control = Top_Botton_Panel
+    Left = 0
+    Height = 337
+    Top = 0
+    Width = 603
+    Align = alTop
+    Anchors = [akTop, akBottom]
+    AutoEdit = False
+    AutoFillColumns = True
+    Color = clDefault
+    ColCount = 8
+    ColumnClickSorts = True
+    Columns = <    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Date_Heure'
+        Width = 142
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Freq'
+        Width = 66
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Mode'
+        Width = 66
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Station'
+        Width = 66
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Rx-RS(T)'
+        Width = 66
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Zone Rx'
+        Width = 65
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Party'
+        Width = 65
+      end    
+      item
+        Color = clWindow
+        Title.Caption = 'Zone Tx'
+        Width = 65
+      end>
+    FixedCols = 0
+    Font.Height = -12
+    Font.Name = 'Liberation Mono'
+    MouseWheelOption = mwGrid
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRowSelect, goSmoothScroll]
+    ParentFont = False
+    PopupMenu = QSO_List_PopupMenu
+    RowCount = 1
+    ScrollBars = ssAutoVertical
+    TabOrder = 0
+    TitleStyle = tsNative
+    OnClick = QSO_ListString_OnClick
+    ColWidths = (
+      142
+      66
+      66
+      66
+      66
+      65
+      65
+      65
+    )
+    RowHeights = (
+      23
+    )
+  end
+  object Top_Botton_Panel: TPanel
+    AnchorSideBottom.Control = Bottom_Botton_Panel
+    Left = 0
+    Height = 27
+    Top = 337
+    Width = 603
+    Anchors = [akLeft, akRight, akBottom]
+    ClientHeight = 27
+    ClientWidth = 603
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object Edit_QSO_Buttton: TButton
+      Left = 86
+      Height = 23
+      Top = 410
+      Width = 78
+      Caption = 'Éditer QSO'
+      TabOrder = 0
+    end
+    object Stats_Button: TButton
+      Left = 520
+      Height = 25
+      Top = 1
+      Width = 82
+      Align = alRight
+      AutoSize = True
+      Caption = 'Statistiques'
+      TabOrder = 5
+      OnClick = Stats_Form_ButtonClick
+    end
+    object Worked_Zones_Button: TButton
+      Left = 441
+      Height = 25
+      Top = 1
+      Width = 79
+      Align = alRight
+      AutoSize = True
+      Caption = 'Liste Zones'
+      TabOrder = 1
+      OnClick = Worked_Zones_Form_ButtonClick
+    end
+    object Erase_All_Button: TButton
+      Left = 262
+      Height = 25
+      Top = 1
+      Width = 120
+      Align = alLeft
+      AutoSize = True
+      Caption = 'Effacer Tous QSOs'
+      TabOrder = 3
+      OnClick = Erase_All_ButtonClick
+    end
+    object Erase_QSO_Button: TButton
+      Left = 179
+      Height = 25
+      Top = 1
+      Width = 83
+      Align = alLeft
+      AutoSize = True
+      Caption = 'Effacer QSO'
+      TabOrder = 2
+      OnClick = Erase_QSO_ButtonClick
+    end
+    object Edit_QSO_Button: TButton
+      Left = 102
+      Height = 25
+      Top = 1
+      Width = 77
+      Align = alLeft
+      AutoSize = True
+      Caption = 'Éditer QSO'
+      TabOrder = 4
+      OnClick = Edit_QSO_ButtonClick
+    end
+    object Reuse_Button: TButton
+      Left = 1
+      Height = 25
+      Top = 1
+      Width = 101
+      Align = alLeft
+      AutoSize = True
+      Caption = 'Ré-utiliser QSO'
+      TabOrder = 6
+      OnClick = Reuse_Button_OnClick
+    end
+  end
+  object Log_Load_OpenDialog: TOpenDialog
+    Title = 'Charger Un Log Existant / Open An Existing Log'
+    DefaultExt = '.qplog'
+    Filter = 'QSO Party Log file|*.qplog|All files|*'
+    FilterIndex = 0
+    InitialDir = './'
+    Left = 53
+    Top = 265
+  end
+  object Log_Create_SaveDialog: TSaveDialog
+    Title = 'Nouveau Fichier de Log / New Log File'
+    DefaultExt = '.qplog'
+    Filter = 'QSO Party Log file|*.qplog|All files|*'
+    FilterIndex = 0
+    InitialDir = '*/'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 182
+    Top = 265
+  end
+  object Log_Rename_SaveDialog: TSaveDialog
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 311
+    Top = 265
+  end
+  object QSO_List_PopupMenu: TPopupMenu
+    OnPopup = QSO_List_PopupMenu_OnPopup
+    Left = 485
+    Top = 273
+    object ReuseQSO_MenuItem: TMenuItem
+      Caption = 'Ré-Utiliser le QSO'
+      OnClick = ReuseQSO_MenuItemClick
+    end
+    object Edit_QSO_MenuItem: TMenuItem
+      Caption = 'Editer le QSO'
+      OnClick = Edit_QSO_MenuItemClick
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
+    object EraseQSO_MenuItem: TMenuItem
+      Caption = 'Effacer le QSO'
+      OnClick = EraseQSO_MenuItemClick
+    end
+    object EraseAllQSOs_MenuItem: TMenuItem
+      Caption = 'Effacer tous les QSOs'
+      OnClick = EraseAllQSOs_MenuItemClick
+    end
+  end
+end

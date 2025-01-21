@@ -1,0 +1,908 @@
+object Worked_Zones_Form: TWorked_Zones_Form
+  AnchorSideTop.Side = asrCenter
+  Left = 653
+  Height = 472
+  Top = 0
+  Width = 556
+  HorzScrollBar.Increment = 1
+  HorzScrollBar.Page = 1
+  HorzScrollBar.Smooth = True
+  HorzScrollBar.Tracking = True
+  HorzScrollBar.Visible = False
+  VertScrollBar.Increment = 45
+  VertScrollBar.Page = 458
+  VertScrollBar.Smooth = True
+  VertScrollBar.Tracking = True
+  Anchors = []
+  AutoScroll = True
+  Caption = 'Zones et Stations Bonus Contactées'
+  ChildSizing.EnlargeHorizontal = crsHomogenousSpaceResize
+  ChildSizing.EnlargeVertical = crsHomogenousChildResize
+  ChildSizing.ShrinkHorizontal = crsHomogenousChildResize
+  ChildSizing.ShrinkVertical = crsHomogenousChildResize
+  ClientHeight = 472
+  ClientWidth = 556
+  DesignTimePPI = 91
+  Font.Height = -10
+  Font.Name = 'Noto Mono'
+  OnCreate = Worked_Zones_Form_OnCreate
+  OnResize = Worked_Zones_Form_OnResize
+  OnShow = Worked_Zones_Form_OnShow
+  LCLVersion = '3.6.0.0'
+  object Legend_Panel: TPanel
+    Left = 0
+    Height = 21
+    Top = 451
+    Width = 556
+    Align = alBottom
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclTopToBottomThenLeftToRight
+    ClientHeight = 21
+    ClientWidth = 556
+    ParentBackground = False
+    TabOrder = 0
+    object InProvince_Label: TLabel
+      Left = 1
+      Height = 19
+      Top = 1
+      Width = 127
+      Alignment = taCenter
+      Caption = 'En-Province'
+      Layout = tlCenter
+      OnClick = InProvince_LabelClick
+    end
+    object OutOfProvince_Label: TLabel
+      Left = 128
+      Height = 19
+      Top = 1
+      Width = 150
+      Alignment = taCenter
+      Caption = 'Hors-Province'
+      Layout = tlCenter
+    end
+    object Bonus_Label: TLabel
+      Left = 278
+      Height = 19
+      Top = 1
+      Width = 150
+      Alignment = taCenter
+      Caption = 'Commenditaire'
+      Layout = tlCenter
+      OnClick = Bonus_LabelClick
+    end
+    object Not_Counted_Label: TLabel
+      Left = 428
+      Height = 19
+      Top = 1
+      Width = 127
+      Alignment = taCenter
+      Caption = 'Non-Comptée'
+      Font.Color = clGray
+      Font.Height = -10
+      Font.Name = 'Noto Mono'
+      Layout = tlCenter
+      ParentFont = False
+    end
+  end
+  object Title_Panel: TPanel
+    Left = 0
+    Height = 449
+    Top = 2
+    Width = 23
+    Align = alLeft
+    BorderSpacing.Top = 2
+    ChildSizing.EnlargeHorizontal = crsHomogenousSpaceResize
+    ChildSizing.EnlargeVertical = crsHomogenousSpaceResize
+    ChildSizing.ShrinkHorizontal = crsHomogenousSpaceResize
+    ChildSizing.ShrinkVertical = crsHomogenousSpaceResize
+    ClientHeight = 449
+    ClientWidth = 23
+    TabOrder = 1
+    object QC_Title_Panel: TPanel
+      AnchorSideBottom.Control = ON_Title_Panel
+      Left = 1
+      Height = 348
+      Top = 1
+      Width = 21
+      Align = alTop
+      ClientHeight = 348
+      ClientWidth = 21
+      TabOrder = 0
+      object QC_Label: TLabel
+        AnchorSideTop.Control = QC_Title_Panel
+        AnchorSideTop.Side = asrCenter
+        Left = 3
+        Height = 63
+        Top = 143
+        Width = 14
+        BorderSpacing.CellAlignVertical = ccaCenter
+        Caption = 'Québec QP'
+        Font.Height = -11
+        Font.Name = 'Noto Mono'
+        Font.Orientation = 900
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object ON_Title_Panel: TPanel
+      AnchorSideBottom.Control = Title_Panel
+      AnchorSideBottom.Side = asrBottom
+      Left = 1
+      Height = 99
+      Top = 349
+      Width = 21
+      Align = alTop
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      ClientHeight = 99
+      ClientWidth = 21
+      TabOrder = 1
+      object ON_Label: TLabel
+        AnchorSideTop.Control = ON_Title_Panel
+        AnchorSideTop.Side = asrCenter
+        Left = 3
+        Height = 70
+        Top = 14
+        Width = 14
+        BorderSpacing.CellAlignVertical = ccaCenter
+        Caption = 'Ontario QP'
+        Font.Height = -11
+        Font.Name = 'Noto Mono'
+        Font.Orientation = 900
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = ON_LabelClick
+      end
+    end
+  end
+  object Stats_Panel: TPanel
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 23
+    Height = 451
+    Top = 0
+    Width = 533
+    Align = alLeft
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClientHeight = 451
+    ClientWidth = 533
+    TabOrder = 2
+    object Band_Listboxes_QC_Panel: TPanel
+      AnchorSideBottom.Control = Band_Listboxes_ON_Panel
+      Left = 3
+      Height = 284
+      Top = 3
+      Width = 527
+      Align = alTop
+      BorderSpacing.Around = 2
+      Caption = 'Band_Listboxes_QC_Panel'
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclTopToBottomThenLeftToRight
+      ClientHeight = 284
+      ClientWidth = 527
+      ParentBackground = False
+      TabOrder = 0
+      OnClick = Band_Listboxes_QC_PanelClick
+      object Panel_160m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 1
+        Height = 282
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 282
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 0
+        Visible = False
+        OnClick = Panel_160mClick
+        object QC_ListBox_160m: TListBox
+          AnchorSideLeft.Side = asrBottom
+          Left = 1
+          Height = 267
+          Top = 14
+          Width = 63
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object QC_Label_160m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '1.8 MHz'
+          OnClick = QC_Label_160mClick
+        end
+      end
+      object QC_Panel_80m: TPanel
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideBottom.Side = asrBottom
+        Left = 66
+        Height = 282
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 282
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 1
+        OnClick = QC_Panel_80mClick
+        object QC_ListBox_80m: TListBox
+          Left = 1
+          Height = 267
+          Top = 14
+          Width = 63
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object QC_Label_80m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '3.5 MHz'
+        end
+      end
+      object QC_Panel_40m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 131
+        Height = 282
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 282
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 2
+        OnClick = QC_Panel_40mClick
+        object QC_ListBox_40m: TListBox
+          Left = 1
+          Height = 267
+          Top = 14
+          Width = 63
+          Align = alClient
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object QC_Label_40m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '7 MHz'
+        end
+      end
+      object QC_Panel_20m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 196
+        Height = 282
+        Top = 1
+        Width = 66
+        AutoSize = True
+        ClientHeight = 282
+        ClientWidth = 66
+        ParentBackground = False
+        TabOrder = 3
+        OnClick = QC_Panel_20mClick
+        object QC_ListBox_20m: TListBox
+          Left = 1
+          Height = 267
+          Top = 14
+          Width = 64
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object QC_Label_20m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 64
+          Align = alTop
+          Alignment = taCenter
+          Caption = '14 MHz'
+          OnClick = QC_Label_20mClick
+        end
+      end
+      object QC_Panel_15m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 262
+        Height = 282
+        Top = 1
+        Width = 66
+        AutoSize = True
+        ClientHeight = 282
+        ClientWidth = 66
+        ParentBackground = False
+        TabOrder = 4
+        object QC_ListBox_15m: TListBox
+          Left = 1
+          Height = 267
+          Top = 14
+          Width = 64
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object QC_Label_15m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 64
+          Align = alTop
+          Alignment = taCenter
+          Caption = '21 MHz'
+        end
+      end
+      object QC_Panel_10m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 328
+        Height = 282
+        Top = 1
+        Width = 66
+        AutoSize = True
+        ClientHeight = 282
+        ClientWidth = 66
+        ParentBackground = False
+        TabOrder = 5
+        object QC_ListBox_10m: TListBox
+          Left = 1
+          Height = 267
+          Top = 14
+          Width = 64
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object QC_Label_10m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 64
+          Align = alTop
+          Alignment = taCenter
+          Caption = '28 MHz'
+        end
+      end
+      object QC_Panel_6m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 394
+        Height = 282
+        Top = 1
+        Width = 66
+        AutoSize = True
+        ClientHeight = 282
+        ClientWidth = 66
+        ParentBackground = False
+        TabOrder = 6
+        UseDockManager = False
+        object QC_ListBox_6m: TListBox
+          Left = 1
+          Height = 267
+          Top = 14
+          Width = 64
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object QC_Label_6m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 64
+          Align = alTop
+          Alignment = taCenter
+          Caption = '50 MHz'
+        end
+      end
+      object QC_Panel_2m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 460
+        Height = 282
+        Top = 1
+        Width = 66
+        AutoSize = True
+        ClientHeight = 282
+        ClientWidth = 66
+        ParentBackground = False
+        TabOrder = 7
+        OnClick = QC_Panel_2mClick
+        object QC_ListBox_2m: TListBox
+          Left = 1
+          Height = 267
+          Top = 14
+          Width = 64
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object QC_Label_2m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 64
+          Align = alTop
+          Alignment = taCenter
+          Caption = '144 MHz'
+        end
+      end
+    end
+    object Band_Listboxes_ON_Panel: TPanel
+      Left = 6
+      Height = 151
+      Top = 294
+      Width = 521
+      Align = alClient
+      BorderSpacing.Top = 2
+      BorderSpacing.Around = 5
+      Caption = 'Band_Listboxes_ON_Panel'
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclTopToBottomThenLeftToRight
+      ClientHeight = 151
+      ClientWidth = 521
+      ParentBackground = False
+      TabOrder = 1
+      OnClick = Band_Listboxes_QC_PanelClick
+      object ON_Panel_160m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 1
+        Height = 149
+        Top = 1
+        Width = 64
+        AutoSize = True
+        ClientHeight = 149
+        ClientWidth = 64
+        ParentBackground = False
+        TabOrder = 0
+        OnClick = Panel_160mClick
+        object ON_ListBox_160m: TListBox
+          Left = 1
+          Height = 150
+          Top = 14
+          Width = 62
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object ON_Label_160m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 62
+          Align = alTop
+          Alignment = taCenter
+          Caption = '1.8 MHz'
+          OnClick = QC_Label_160mClick
+        end
+      end
+      object ON_Panel_80m: TPanel
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideBottom.Side = asrBottom
+        Left = 65
+        Height = 149
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 149
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 1
+        OnClick = QC_Panel_80mClick
+        object ON_ListBox_80m: TListBox
+          Left = 1
+          Height = 150
+          Top = 14
+          Width = 63
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object ON_Label_80m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '3.5 MHz'
+        end
+      end
+      object ON_Panel_40m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 130
+        Height = 149
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 149
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 2
+        OnClick = QC_Panel_40mClick
+        object ON_ListBox_40m: TListBox
+          Left = 1
+          Height = 150
+          Top = 14
+          Width = 63
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object ON_Label_40m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '7 MHz'
+        end
+      end
+      object ON_Panel_20m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 195
+        Height = 149
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 149
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 3
+        OnClick = QC_Panel_20mClick
+        object ON_ListBox_20m: TListBox
+          Left = 1
+          Height = 151
+          Top = 14
+          Width = 63
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object ON_Label_20m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '14 MHz'
+        end
+      end
+      object ON_Panel_15m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 260
+        Height = 149
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 149
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 4
+        OnClick = ON_Panel_15mClick
+        object ON_ListBox_15m: TListBox
+          Left = 1
+          Height = 150
+          Top = 14
+          Width = 63
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object ON_Label_15m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '21 MHz'
+        end
+      end
+      object ON_Panel_10m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 325
+        Height = 149
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 149
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 5
+        object ON_ListBox_10m: TListBox
+          Left = 1
+          Height = 150
+          Top = 14
+          Width = 63
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object ON_Label_10m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '28 MHz'
+        end
+      end
+      object ON_Panel_6m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 390
+        Height = 149
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 149
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 6
+        object ON_ListBox_6m: TListBox
+          Left = 1
+          Height = 170
+          Top = 14
+          Width = 63
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object ON_Label_6m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '50 MHz'
+        end
+      end
+      object ON_Panel_2m: TPanel
+        AnchorSideRight.Side = asrBottom
+        Left = 455
+        Height = 149
+        Top = 1
+        Width = 65
+        AutoSize = True
+        ClientHeight = 149
+        ClientWidth = 65
+        ParentBackground = False
+        TabOrder = 7
+        OnClick = QC_Panel_2mClick
+        object ON_ListBox_2m: TListBox
+          Left = 1
+          Height = 150
+          Top = 14
+          Width = 63
+          Align = alTop
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BidiMode = bdRightToLeftNoAlign
+          ClickOnSelChange = False
+          Columns = 1
+          ExtendedSelect = False
+          ItemHeight = 0
+          Options = []
+          ParentBidiMode = False
+          Sorted = True
+          Style = lbOwnerDrawFixed
+          TabOrder = 0
+          TopIndex = -1
+          OnClick = QC_ListBox_160mClick
+          OnDrawItem = Zone_Listbox_OndrawItem
+        end
+        object ON_Label_2m: TLabel
+          Left = 1
+          Height = 13
+          Top = 1
+          Width = 63
+          Align = alTop
+          Alignment = taCenter
+          Caption = '144 MHz'
+        end
+      end
+    end
+  end
+  object Worked_Zones_Refresh_Timer: TTimer
+    OnTimer = Zones_Refresh_Timer_OnTimer
+    Left = 159
+    Top = 394
+  end
+end
