@@ -1,5 +1,6 @@
 # QPLog - QSO Party Logger
 ![](Toutes_Fenêtres.png)
+*La version française des fenêtres de QPLog / The French version of the QPLog windows*
 ## Français
 QPLog est un logiciel PC qui permet de saisir et d’analyser les contacts radio (QSO) durant les compétitions “contest” radio amateur suivantes: le Québec QSO Party (QCQP) et l’Ontario QSO Party (ONQP). L’idée derrière la creation de ce logiciel était de produire un environnement de contest facile à installer, simple à opérer, et fait sur mesure pour ces deux contests. Ce projet de logiciel a été élaboré par Georges-André Chaudron (VE2VAB) et Bertrand Zauhar (VE2ZAZ - VA2IW), et la version initiale a été développée par ce dernier en 2024.
 
