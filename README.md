@@ -8,6 +8,8 @@ QPLog est un logiciel PC qui permet de saisir et d’analyser les contacts radio
 QPLog est conçu pour une participation coïncidente, si désirée, du QCQP et de l’ONQP. En outre, il compile les scores à la volée et de façon indépendante pour chacun des deux Parties, mais tient compte des contacts éligibles dans les deux contests.
 QPLog permet aussi une opération nomade, donc prend en compte les changements de région administrative (zone) de l’opérateur durant le contest.
 
+Le contrôle d’un WinKeyer3 CW ou de la ligne DTR/RTS d’un port série externe est offert. Cela permet d’automatiser, et donc de faciliter l’opération CW durant le Party.
+
 Un fois le contest terminé, QPLog peut produire un fichier de format Cabrillo, que le participant soumet à l’organisation du contest pour officialiser sa participation et fournir la liste des QSOs.
 
 QPLog est disponible en versions pré-compilées pour Windows 32/64 bits (7, 8, 10, 11) et Ubuntu Linux (Ubuntu 22.xx, 24.xx). La version Linux pourrait aussi fonctionner sur d’autres distributions; elle a entre autres été vérifiée sur Arch Linux xxxx). Certains pilotes pourraient cependant être requis.
@@ -19,6 +21,8 @@ QPLog is a PC software that allows the entry and analysis of radio contacts (QSO
 
 QPLog is designed for simultaneous participation, if desired, in the QCQP and ONQP. Furthermore, it compiles scores on the fly and independently for each of the two parties, while considering eligible contacts in both contests.
 QPLog also allows for mobile operation, accounting for changes in the operator's administrative region (zone) during the contest.
+
+Control of a WinKeyer3 CW or the DTR/RTS line of an external serial port is offered. This allows for automation, and therefore simplifies CW operation during the Party.
 
 Once the contest is over, QPLog can produce a Cabrillo format file, which the participant submits to the contest organization to formalize their participation and provide the list of QSOs.
 
