@@ -10,6 +10,8 @@ QPLog permet aussi une opération nomade, donc prend en compte les changements d
 
 Le contrôle d’un WinKeyer3 CW ou de la ligne DTR/RTS d’un port série externe est offert. Cela permet d’automatiser, et donc de faciliter l’opération CW durant le Party.
 
+La fonction d'Historique des Stations permet d'économiser la saisie de la zone pour un QSO avec les stations réputées comme ayant déjà participé au QSO Party. De ce fait, elle offre aussi un certain niveau de confirmation quant aux informations saisies durant le QSO.
+
 Un fois le contest terminé, QPLog peut produire un fichier de format Cabrillo, que le participant soumet à l’organisation du contest pour officialiser sa participation et fournir la liste des QSOs.
 
 QPLog est disponible en versions pré-compilées pour Windows 32/64 bits (7, 8, 10, 11) et Ubuntu Linux (Ubuntu 22.xx, 24.xx). La version Linux pourrait aussi fonctionner sur d’autres distributions; elle a entre autres été vérifiée sur Arch Linux xxxx). Certains pilotes pourraient cependant être requis.
@@ -24,6 +26,7 @@ QPLog also allows for mobile operation, accounting for changes in the operator's
 
 Control of a WinKeyer3 CW or the DTR/RTS line of an external serial port is offered. This allows for automation, and therefore simplifies CW operation during the Party.
 
+The Call History Lookup saves you from having to enter the zone for a QSO with stations known to have previously participated in the QSO Party. As such, it also provides a certain level of confirmation regarding the information entered during the QSO. 
 Once the contest is over, QPLog can produce a Cabrillo format file, which the participant submits to the contest organization to formalize their participation and provide the list of QSOs.
 
 QPLog is available in pre-compiled versions for Windows 32/64 bits (7, 8, 10, 11) and Ubuntu Linux (Ubuntu 22.xx, 24.xx). The Linux version may also work on other distributions; it has been verified to run, for example, on Arch Linux. However, certain drivers may be required.
